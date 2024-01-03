@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import InputValue from './components/inputValue'
-import SelectCurrency from './components/selectCurrency'
+import InputValue from './components/InputValue'
+import SelectCurrency from './components/SelectCurrency'
 import RefreshIcon from './icons/RefreshIcon'
 import Result from './components/Result'
 
