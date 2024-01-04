@@ -14,9 +14,7 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
       try{
         const respuesta = await fetch('http://200.58.107.39:9090/currency/getAll', {
           method: 'GET',
-          headers: {
-            'Origin': "http://localhost:5173"
-          }
+          mode: 'no-cors'
         });
 
         if(!respuesta.ok){
