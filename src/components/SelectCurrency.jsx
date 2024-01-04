@@ -13,8 +13,10 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
     const getAllCurrencies  = async () => {
       try{
         const respuesta = await fetch('http://localhost:9090/currency/getAll', {
-          
-          method: 'GET'
+          method: 'GET',
+          headers: {
+            'Origin': "http://localhost:5173"
+          }
         });
 
         if(!respuesta.ok){
