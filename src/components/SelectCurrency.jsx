@@ -12,7 +12,7 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
   useEffect( () => {
     const getAllCurrencies  = async () => {
       try{
-        const respuesta = await fetch('http://currency-converter-api:9090/currency/getAll', {
+        const respuesta = await fetch('http://localhost:9090/currency/getAll', {
           
           method: 'GET'
         });
