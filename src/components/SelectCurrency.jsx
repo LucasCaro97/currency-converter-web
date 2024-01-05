@@ -14,12 +14,13 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
     const getAllCurrencies  = async () => {
       try{
         const respuesta = await axios.get("http://200.58.107.39:9090/currency/getAll");
-        console.log("Respuesta de la solicitud:", respuesta);
+        console.log("Respuesta:", respuesta);
+        console.log("Respuesta de la solicitud:", respuesta.data);
         
-        const datos = await respuesta.json();
+        const datos = await respuesta.data;
         setCurrencies(datos);
       }catch(error){
-        console.error("Error while get currencies from database: ", error)
+        console.error("Error while get currencies from database: " + error)
       }
     };
     
@@ -36,7 +37,7 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
         >
           <option>Select Currency</option>
           {currencies.map((currency) => (
-            <option key={'currency'+currency.value} value={currency.value}>{currency.name}</option>
+            <option key={'currency'+currency.id} value={currency.value}>{currency.name}</option>
           ))}    
         </select>
     </div>
