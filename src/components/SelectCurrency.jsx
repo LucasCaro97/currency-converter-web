@@ -8,14 +8,11 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
   }
 
   const [currencies, setCurrencies] = useState([])
-  
+
   useEffect( () => {
     const getAllCurrencies  = async () => {
       try{
-        const respuesta = await fetch('http://200.58.107.39:9090/currency/getAll', {
-          method: 'GET',
-          mode: 'no-cors'
-        });
+        const respuesta = await fetch("http://200.58.107.39:9090/currency/getAll");
 
         if(!respuesta.ok){
           throw new Error("Error while get currencies from database")
