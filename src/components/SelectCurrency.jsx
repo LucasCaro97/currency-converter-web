@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from 'axios'
 
 
 export default function SelectCurrency({textLabel, className, onSelect}) {
@@ -12,16 +13,9 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
   useEffect( () => {
     const getAllCurrencies  = async () => {
       try{
-        const respuesta = await fetch("http://200.58.107.39:9090/currency/getAll", {
-          method: "GET",
-          mode: "cors",
-        });
-
+        const respuesta = await axios.get("http://200.58.107.39:9090/currency/getAll");
         console.log("Respuesta de la solicitud:", respuesta);
-        if(!respuesta.ok){
-          throw new Error("Error while get currencies from database")
-        }
-
+        
         const datos = await respuesta.json();
         setCurrencies(datos);
       }catch(error){
