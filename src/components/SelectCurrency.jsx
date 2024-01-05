@@ -12,8 +12,12 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
   useEffect( () => {
     const getAllCurrencies  = async () => {
       try{
-        const respuesta = await fetch("http://200.58.107.39:9090/currency/getAll");
+        const respuesta = await fetch("http://200.58.107.39:9090/currency/getAll", {
+          method: "GET",
+          mode: "cors",
+        });
 
+        console.log("Respuesta de la solicitud:", respuesta);
         if(!respuesta.ok){
           throw new Error("Error while get currencies from database")
         }
