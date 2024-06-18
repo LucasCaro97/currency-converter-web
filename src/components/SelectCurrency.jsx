@@ -13,7 +13,7 @@ export default function SelectCurrency({textLabel, className, onSelect}) {
   useEffect( () => {
     const getAllCurrencies  = async () => {
       try{
-        const respuesta = await axios.get("http://localhost:8080/currency/getAll");
+        const respuesta = await axios.get("https://currency-converter-api-0iw4.onrender.com/currency/getAll");
         console.log("Respuesta:", respuesta);
         console.log("Respuesta de la solicitud:", respuesta.data);
         
